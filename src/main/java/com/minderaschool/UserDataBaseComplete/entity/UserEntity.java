@@ -1,4 +1,4 @@
-package com.minderaschool.UserGiDataBase.entity;
+package com.minderaschool.UserDataBaseComplete.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

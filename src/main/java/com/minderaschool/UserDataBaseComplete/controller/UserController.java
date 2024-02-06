@@ -1,10 +1,10 @@
-package com.minderaschool.UserGiDataBase.controller;
+package com.minderaschool.UserDataBaseComplete.controller;
 
-import com.minderaschool.UserGiDataBase.dto.UserDtoCreateUser;
-import com.minderaschool.UserGiDataBase.dto.UserDtoGetAll;
-import com.minderaschool.UserGiDataBase.dto.UserDtoGetOneUser;
-import com.minderaschool.UserGiDataBase.dto.UserDtoUpdate;
-import com.minderaschool.UserGiDataBase.service.UserService;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoCreateUser;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoGetAll;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoGetOneUser;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoUpdate;
+import com.minderaschool.UserDataBaseComplete.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

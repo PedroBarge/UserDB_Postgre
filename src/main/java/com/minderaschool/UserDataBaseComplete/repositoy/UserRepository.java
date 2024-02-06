@@ -1,6 +1,6 @@
-package com.minderaschool.UserGiDataBase.repositoy;
+package com.minderaschool.UserDataBaseComplete.repositoy;
 
-import com.minderaschool.UserGiDataBase.entity.UserEntity;
+import com.minderaschool.UserDataBaseComplete.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

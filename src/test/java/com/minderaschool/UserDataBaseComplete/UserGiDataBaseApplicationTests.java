@@ -1,7 +1,7 @@
-package com.minderaschool.UserGiDataBase;
+package com.minderaschool.UserDataBaseComplete;
 
-import com.minderaschool.UserGiDataBase.entity.UserEntity;
-import com.minderaschool.UserGiDataBase.repositoy.UserRepository;
+import com.minderaschool.UserDataBaseComplete.entity.UserEntity;
+import com.minderaschool.UserDataBaseComplete.repositoy.UserRepository;
 
 import org.junit.jupiter.api.Test;
 

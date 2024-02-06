@@ -1,13 +1,13 @@
-package com.minderaschool.UserGiDataBase.service;
+package com.minderaschool.UserDataBaseComplete.service;
 
-import com.minderaschool.UserGiDataBase.dto.UserDtoCreateUser;
-import com.minderaschool.UserGiDataBase.dto.UserDtoGetAll;
-import com.minderaschool.UserGiDataBase.dto.UserDtoGetOneUser;
-import com.minderaschool.UserGiDataBase.dto.UserDtoUpdate;
-import com.minderaschool.UserGiDataBase.entity.UserEntity;
-import com.minderaschool.UserGiDataBase.exception.UserMissArgsException;
-import com.minderaschool.UserGiDataBase.exception.UserNotFoundException;
-import com.minderaschool.UserGiDataBase.repositoy.UserRepository;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoCreateUser;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoGetAll;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoGetOneUser;
+import com.minderaschool.UserDataBaseComplete.dto.UserDtoUpdate;
+import com.minderaschool.UserDataBaseComplete.entity.UserEntity;
+import com.minderaschool.UserDataBaseComplete.exception.UserMissArgsException;
+import com.minderaschool.UserDataBaseComplete.exception.UserNotFoundException;
+import com.minderaschool.UserDataBaseComplete.repositoy.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -44,20 +44,20 @@ public class UserService {
         return repository.findAll()
                 .stream()
                 .sorted(Comparator.comparing(UserEntity::getId))
-                .map(userEntity -> new UserDtoGetAll(userEntity.getId(), userEntity.getUsername(), userEntity.getEmail()))
+                .map(userEntity -> new UserDtoGetAll(userEntity.getId(), userEntity.getUsername()))
                 .toList();
     }
 
     public void update(Integer id, UserDtoUpdate updatedUser) {
 
-        UserEntity checkID = repository.findById(id)
+        UserEntity userEntity = repository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User " + id + " not found"));
 
         if (updatedUser.getUsername() == null || updatedUser.getPassword() == null) {
             throw new UserMissArgsException("User not complete");
         }
 
-        UserEntity userEntity = new UserEntity(checkID.getId(), updatedUser.getUsername(), updatedUser.getUsername(), checkID.getEmail());
+        userEntity = new UserEntity(userEntity.getId(), updatedUser.getUsername(), userEntity.getEmail(), updatedUser.getPassword());
 
         repository.save(userEntity);
     }

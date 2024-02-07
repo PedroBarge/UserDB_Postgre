@@ -1,13 +1,16 @@
 package com.minderaschool.UserDataBaseComplete;
 
+import com.minderaschool.UserDataBaseComplete.controller.UserController;
 import com.minderaschool.UserDataBaseComplete.entity.UserEntity;
 import com.minderaschool.UserDataBaseComplete.repositoy.UserRepository;
 
+import com.minderaschool.UserDataBaseComplete.service.UserService;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -329,18 +332,18 @@ class UserGiDataBaseApplicationTests {
 
     @Test
     void testUpdatePatchUserShouldReturnBadRequest() throws Exception {
-        int id = 3;
+        int idToPatchUserWithBadR = 3;
         UserEntity user = new UserEntity();
         user.setUsername(null);
         user.setPassword(null);
 
         List<UserEntity> listUser = new ArrayList<>(Arrays.asList(user1, user2, user3, user));
 
-        Mockito.when(userRepository.findById(id)).thenReturn(Optional.of(listUser.get(3)));
+        Mockito.when(userRepository.findById(idToPatchUserWithBadR)).thenReturn(Optional.of(listUser.get(3)));
         Mockito.when(userRepository.save(listUser.get(3))).thenReturn(user);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
-                .patch("/user/{id}", id)
+                .patch("/user/{idToPatchUserWithBadR}", idToPatchUserWithBadR)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(user));

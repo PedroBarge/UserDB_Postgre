@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUserById(@PathVariable Integer id) throws Exception {
+    public void deleteUserById(@PathVariable Integer id){
         service.deleteUser(id);
     }
 

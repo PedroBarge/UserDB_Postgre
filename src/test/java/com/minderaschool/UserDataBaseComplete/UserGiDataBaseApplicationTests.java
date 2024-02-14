@@ -89,6 +89,7 @@ class UserGiDataBaseApplicationTests {
                 Arguments.of(null,"Email","Password")
                 );
     }
+
     @ParameterizedTest
     @MethodSource("testAddUserNotOkShouldExpectStatusIsBadRequestArgs")
     void testAddUserNotOkShouldExpectStatusIsBadRequest(String username, String email, String password) throws Exception {

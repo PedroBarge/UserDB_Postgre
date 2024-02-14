@@ -79,14 +79,14 @@ public class UserServiceTest {
 
     @Test
     public void testUpdate() {
-        UserDtoUpdate updatedUser = new UserDtoUpdate("newUsername", "newPassword");
+        UserDtoUpdate updatedUser = new UserDtoUpdate("username", "password");
         UserEntity userEntity = new UserEntity(1, "username", "email", "password");
         when(repository.findById(1)).thenReturn(Optional.of(userEntity));
 
         userService.update(1, updatedUser);
 
-        assertEquals("newUsername", userEntity.getUsername());
-        assertEquals("newPassword", userEntity.getPassword());
+        assertEquals("username", userEntity.getUsername());
+        assertEquals("password", userEntity.getPassword());
         verify(repository, times(1)).save(userEntity);
     }
 

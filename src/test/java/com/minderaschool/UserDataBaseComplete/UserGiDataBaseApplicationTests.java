@@ -235,13 +235,21 @@ class UserGiDataBaseApplicationTests {
     /**
      * Test to UPDATE user with bad request
      */
-    @Test
-    void testUpdateUserNotOkShouldReturnBadRequest() throws Exception {
+    static Stream<Arguments> testUpdateUserNotOkShouldReturnBadRequestArgs(){
+        return Stream.of(
+                Arguments.of(null,null),
+                Arguments.of("Username",null),
+                Arguments.of(null,"Password")
+                );
+    }
+    @ParameterizedTest
+    @MethodSource("testUpdateUserNotOkShouldReturnBadRequestArgs")
+    void testUpdateUserNotOkShouldReturnBadRequest(String username, String password) throws Exception {
         int id = 1;
         UserEntity userEntity = UserEntity.builder()
                 .id(1)
-                .username("UPDATE")
-                .password(null)
+                .username(username)
+                .password(password)
                 .build();
 
         Mockito.verify(userRepository, times(0)).findById(id);

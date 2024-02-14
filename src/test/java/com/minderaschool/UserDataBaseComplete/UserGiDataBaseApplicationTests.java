@@ -1,5 +1,6 @@
 package com.minderaschool.UserDataBaseComplete;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.minderaschool.UserDataBaseComplete.entity.UserEntity;
 import com.minderaschool.UserDataBaseComplete.repositoy.UserRepository;
@@ -77,10 +78,25 @@ class UserGiDataBaseApplicationTests {
     /**
      * Test to add user don't have the body complete
      */
-    @Test
-    void testAddUserNotOkShouldExpectStatusIsBadRequest() throws Exception {
+    static Stream <Arguments> testAddUserNotOkShouldExpectStatusIsBadRequestArgs(){
+        return Stream.of(
+                Arguments.of(null,null,null),
+                Arguments.of("Username",null,null),
+                Arguments.of(null,"Email",null),
+                Arguments.of(null,null,"Password"),
+                Arguments.of("Username","Email",null),
+                Arguments.of("Username",null,"Password"),
+                Arguments.of(null,"Email","Password")
+                );
+    }
+    @ParameterizedTest
+    @MethodSource("testAddUserNotOkShouldExpectStatusIsBadRequestArgs")
+    void testAddUserNotOkShouldExpectStatusIsBadRequest(String username, String email, String password) throws Exception {
         UserEntity userEntity = UserEntity.builder()
                 .id(4)
+                .username(username)
+                .email(email)
+                .password(password)
                 .build();
 
         //Mockito.when(userRepository.save(userEntity)).thenReturn(userEntity);

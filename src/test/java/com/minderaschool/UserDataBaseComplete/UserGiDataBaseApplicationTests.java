@@ -279,7 +279,6 @@ class UserGiDataBaseApplicationTests {
                 .build();
 
         Mockito.when(userRepository.findById(id)).thenReturn(Optional.empty());
-        Mockito.when(userRepository.save(userEntity)).thenReturn(userEntity);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .put("/user/{id}", id)

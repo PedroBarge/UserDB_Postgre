@@ -22,7 +22,7 @@ public class UserService {
 
     public UserDtoCreateUser add(UserDtoCreateUser user) {
         if (user.getUsername() == null || user.getPassword() == null || user.getEmail() == null) {
-            throw new UserMissArgsException("User not complete");
+            throw new UserMissArgsException();
         }
         UserEntity entity = new UserEntity();
         entity.setUsername(user.getUsername());
@@ -35,7 +35,7 @@ public class UserService {
     public UserDtoGetOneUser getUser(Integer id) {
 
         UserEntity user = repository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User " + id + " not found"));
+                .orElseThrow(UserNotFoundException::new);
 
         return new UserDtoGetOneUser(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
     }
@@ -51,10 +51,10 @@ public class UserService {
     public void update(Integer id, UserDtoUpdate updatedUser) {
 
         UserEntity userEntity = repository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User " + id + " not found"));
+                .orElseThrow(UserNotFoundException::new);
 
         if (updatedUser.getUsername() == null || updatedUser.getPassword() == null) {
-            throw new UserMissArgsException("User not complete");
+            throw new UserMissArgsException();
         }
 
         userEntity = new UserEntity(userEntity.getId(), updatedUser.getUsername(), userEntity.getEmail(), updatedUser.getPassword());
@@ -64,11 +64,11 @@ public class UserService {
 
     public void updatePatch(Integer id, UserDtoUpdate updatePatch) {
         if (updatePatch.getUsername() == null && updatePatch.getPassword() == null) {
-            throw new UserMissArgsException("User not complete");
+            throw new UserMissArgsException();
         }
 
         UserEntity user = repository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User " + id + " not found"));
+                .orElseThrow(UserNotFoundException::new);
 
         if (updatePatch.getUsername() != null) {
             user.setUsername(updatePatch.getUsername());
@@ -82,7 +82,7 @@ public class UserService {
 
     public void deleteUser(Integer id) {
         if (repository.findById(id).isEmpty()) {
-            throw new UserNotFoundException("User " + id + " not found");
+            throw new UserNotFoundException();
         }
         repository.deleteById(id);
     }

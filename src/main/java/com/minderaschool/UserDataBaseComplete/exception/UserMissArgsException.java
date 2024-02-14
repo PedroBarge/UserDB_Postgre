@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class UserMissArgsException extends RuntimeException {
-    public UserMissArgsException(String message) {
-        super(message);
+    public UserMissArgsException() {
+        super("User not complete");
     }
 }

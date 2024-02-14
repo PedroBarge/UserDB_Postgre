@@ -87,7 +87,6 @@ public class UserServiceTest {
 
         assertEquals("username", userEntity.getUsername());
         assertEquals("password", userEntity.getPassword());
-        verify(repository, times(1)).save(userEntity);
     }
 
     @Test

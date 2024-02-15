@@ -18,3 +18,8 @@ spring:
   springdoc:
     swagger-ui:
       path: /swagger-ui.html
+  ### SECURITY###
+  security:
+    user:
+      name: admin
+      password: admin
